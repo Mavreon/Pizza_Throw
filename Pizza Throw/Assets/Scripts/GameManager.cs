@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI countdownText;
     public TextMeshProUGUI congratulatoryText;
+    public TextMeshProUGUI instructionText;
     public Image gameEndMenu;
     public Image mainMenu;
     public Image healthBar;
@@ -42,7 +43,7 @@ public class GameManager : MonoBehaviour
         gameIsCompleted = true;
         score = 0;
         scoreText.text = "Score : " + score;
-        countdown = 30;
+        countdown = 35;
         countdownText.text = countdown.ToString();
     }
 
@@ -104,9 +105,10 @@ public class GameManager : MonoBehaviour
         scoreText.gameObject.SetActive(true);
         countdownText.gameObject.SetActive(true);
         healthBar.gameObject.SetActive(true);
+        instructionText.gameObject.SetActive(true);
         gameIsCompleted = false;
         InvokeRepeating("CountdownTimer", 1.0f, 1.0f);
-        InvokeRepeating("SpawnAnimal", 2.0f, 2.0f);
+        InvokeRepeating("SpawnAnimal", 5.0f, 2.0f);
     }
 
     public void QuitGame()
