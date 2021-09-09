@@ -10,12 +10,13 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.gameManager.gameIsCompleted)
+            return;
         if(transform.position.x >= -10.0f && transform.position.x <= 10.0f)
         {
             transform.Translate(Vector3.right * Input.GetAxis("Horizontal") * speed * Time.deltaTime);
@@ -28,7 +29,6 @@ public class PlayerController : MonoBehaviour
         {
             transform.Translate(Vector3.right * Input.GetAxis("Horizontal") * speed * Time.deltaTime);
         }
-
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
